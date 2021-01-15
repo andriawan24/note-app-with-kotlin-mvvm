@@ -1,1 +1,3 @@
-# chat-app-with-kotlin-mvvm
+### Note App
+
+Note app with Kotlin, using Room, MVVM, LiveData, and more...
