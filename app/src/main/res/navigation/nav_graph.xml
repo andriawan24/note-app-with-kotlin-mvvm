@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/noteFragment"
+    android:id="@+id/nav_graph">
+
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="com.example.offlinefirstapp.ui.fragment.NoteFragment"
+        android:label="fragment_note"
+        tools:layout="@layout/fragment_note">
+
+        <action
+            android:id="@+id/action_noteFragment_to_noteContentFragment"
+            app:destination="@id/noteContentFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/noteContentFragment"
+        android:name="com.example.offlinefirstapp.ui.fragment.NoteContentFragment"
+        android:label="fragment_note_content"
+        tools:layout="@layout/fragment_note_content">
+
+        <deepLink app:uri="notesapp://com.example.offlinefirstapp/addnewnote" />
+
+        <action
+            android:id="@+id/action_noteContentFragment_to_noteFragment"
+            app:destination="@id/noteFragment"
+            app:popUpTo="@id/noteFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="Note"
+            android:defaultValue="@null"
+            app:argType="com.example.offlinefirstapp.model.Note"
+            app:nullable="true" />
+    </fragment>
+
+</navigation>
